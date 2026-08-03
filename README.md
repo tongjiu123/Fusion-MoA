@@ -1,17 +1,17 @@
 # Fusion-MoA Pioneer R1
 
-This repository contains a deliberately minimal reference framework for a
-mixture-of-agents (MoA) runtime. It shows one reusable boundary:
+This repository provides the minimum viable Fusion-MoA Pioneer R1 framework.
+It preserves the core mixture-of-agents (MoA) runtime boundary:
 
 1. a request is either handled directly or admitted to collective inference;
 2. read-only model clients produce candidate evidence concurrently;
 3. a configurable selector chooses which evidence to pass onward; and
 4. one executor produces the only externally returned answer.
 
-The code is a framework, not the production deployment used in the paper. It
-intentionally excludes production endpoints, model identifiers, prompts,
-admission thresholds, infrastructure configuration, traces, benchmark data,
-credentials, and model weights.
+Compared with an industrial deployment, this release removes
+deployment-specific redundancy such as provider bindings, infrastructure
+adapters, operations telemetry, and evaluation assets while retaining the core
+collective-inference flow.
 
 ## Minimal example
 
@@ -50,4 +50,3 @@ Run the offline tests with:
 ```bash
 python -m unittest discover -s tests -t . -v
 ```
-

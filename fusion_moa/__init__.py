@@ -1,4 +1,4 @@
-"""Public interface for the minimal Fusion-MoA reference framework."""
+"""Public interface for the minimum viable Fusion-MoA Pioneer R1 framework."""
 
 from .core import EvidencePacket, Message, MoAFramework, ModelClient, Request, RunResult
 
@@ -10,4 +10,3 @@ __all__ = [
     "Request",
     "RunResult",
 ]
-
