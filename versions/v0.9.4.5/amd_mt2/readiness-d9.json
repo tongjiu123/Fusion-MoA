@@ -1,0 +1,25 @@
+{
+  "model": "TeichAI/Qwen3.6-27B-Fable-5-v1",
+  "messages": [{"role": "user", "content": "Return the JSON object with status ready."}],
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "top_k": 20,
+  "min_p": 0,
+  "presence_penalty": 1.5,
+  "repetition_penalty": 1,
+  "max_tokens": 32,
+  "chat_template_kwargs": {"enable_thinking": false},
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "readiness",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {"status": {"type": "string", "enum": ["ready"]}},
+        "required": ["status"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

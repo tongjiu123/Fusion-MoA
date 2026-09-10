@@ -1,0 +1,8 @@
+{
+  "model": "Qwen/Qwen3.8-27B",
+  "messages": [{"role": "user", "content": "Reply exactly READY."}],
+  "temperature": 0.9,
+  "top_p": 0.95,
+  "max_tokens": 32,
+  "chat_template_kwargs": {"enable_thinking": false}
+}
