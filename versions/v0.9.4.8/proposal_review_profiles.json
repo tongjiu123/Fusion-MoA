@@ -1,0 +1,28 @@
+{
+  "proposal": {
+    "max_tokens": 768,
+    "chat_template_kwargs": {"enable_thinking": false}
+  },
+  "reviewers": {
+    "D16": {
+      "enabled": true,
+      "max_tokens": 768, "timeout_seconds": 120,
+      "temperature": 0.3, "top_p": 0.95, "top_k": 20, "min_p": 0.0,
+      "presence_penalty": 0.0, "repetition_penalty": 1.0,
+      "chat_template_kwargs": {"enable_thinking": false}
+    },
+    "D9": {
+      "enabled": true, "max_tokens": 512, "timeout_seconds": 120,
+      "temperature": 0.3, "top_p": 0.95, "top_k": 20, "min_p": 0.0,
+      "presence_penalty": 0.0, "repetition_penalty": 1.0,
+      "chat_template_kwargs": {"enable_thinking": false}
+    },
+    "D13": {
+      "enabled": true,
+      "max_tokens": 512, "timeout_seconds": 120,
+      "temperature": 0.3, "top_p": 0.95, "top_k": 20, "min_p": 0.0,
+      "presence_penalty": 0.0, "repetition_penalty": 1.0,
+      "chat_template_kwargs": {"reasoning_strength": "low"}
+    }
+  }
+}

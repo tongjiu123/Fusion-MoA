@@ -1,9 +1,23 @@
 __pycache__/
 *.py[cod]
 .venv/
+.venv-*/
 .env
 .DS_Store
 dist/
 build/
 *.egg-info/
+runs/
+wire/
+*.jsonl
+*.log
+gateway.local.json
+litellm.local.yaml
+*_INTERNAL.json
+.audit-local/
+
+# Publish benchmark results as README summaries only.
+benchmarks/terminal_bench_2_1/*
+!benchmarks/terminal_bench_2_1/README.md
+versions/v0.9.4.8/SOURCE_MANIFEST.json
 

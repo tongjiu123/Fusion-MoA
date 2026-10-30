@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fusion.local/schemas/hypothesis_v3.json",
+  "title": "Read-only Evidence Packet v3",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/hypothesis"
+    },
+    {
+      "$ref": "#/$defs/abstain"
+    }
+  ],
+  "$defs": {
+    "hypothesis_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "^[A-Za-z0-9_.-]+$"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      }
+    },
+    "supporting_evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160
+      }
+    },
+    "bounded_statement": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "hypothesis_id",
+        "claim",
+        "supporting_evidence_refs",
+        "disconfirming_evidence_refs",
+        "probe_description",
+        "expected_observation",
+        "falsification_observation"
+      ],
+      "properties": {
+        "status": {
+          "const": "hypothesis"
+        },
+        "hypothesis_id": {
+          "$ref": "#/$defs/hypothesis_id"
+        },
+        "claim": {
+          "$ref": "#/$defs/bounded_statement"
+        },
+        "supporting_evidence_refs": {
+          "$ref": "#/$defs/supporting_evidence_refs"
+        },
+        "disconfirming_evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "probe_description": {
+          "$ref": "#/$defs/bounded_statement"
+        },
+        "expected_observation": {
+          "$ref": "#/$defs/bounded_statement"
+        },
+        "falsification_observation": {
+          "$ref": "#/$defs/bounded_statement"
+        }
+      }
+    },
+    "abstain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "hypothesis_id",
+        "reason_code"
+      ],
+      "properties": {
+        "status": {
+          "const": "abstain"
+        },
+        "hypothesis_id": {
+          "$ref": "#/$defs/hypothesis_id"
+        },
+        "reason_code": {
+          "type": "string",
+          "enum": [
+            "insufficient_evidence",
+            "wrong_task_family",
+            "evidence_conflict",
+            "no_falsifiable_probe"
+          ]
+        }
+      }
+    }
+  }
+}

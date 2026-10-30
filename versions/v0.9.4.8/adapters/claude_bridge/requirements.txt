@@ -1,0 +1,2 @@
+# Existing deployed bridge dependency, pinned for the verified synchronous hook.
+litellm[proxy]==1.93.0
